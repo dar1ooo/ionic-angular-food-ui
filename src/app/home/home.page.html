@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Header </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <swiper-container
+    [modules]="swiperModules"
+    [freeMode]="true"
+    [slidesPerView]="3.5"
+    [slidesOffsetBefore]="11"
+    [spaceBetween]=" 10"
+  >
+    <swiper-slide class="category-slide" *ngFor="let cat of categories">
+      <img [src]="cat.img" />
+    </swiper-slide>
+  </swiper-container>
+
+  <swiper-container
+    [modules]="swiperModules"
+    [freeMode]="false"
+    [slidesPerView]="1.05"
+    [centeredSlides]="true"
+    [spaceBetween]="10"
+    [loop]="true"
+  >
+    <swiper-slide class="highlight-slide" *ngFor="let high of highlights">
+      <img [src]="high.img" />
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-text color="dark"><b style="padding-left: 10px">Featured</b></ion-text>
+
+  <swiper-container
+    [modules]="swiperModules"
+    [freeMode]="false"
+    [slidesPerView]="1.2"
+    [spaceBetween]="10"
+  >
+    <swiper-slide class="featured-slide" *ngFor="let feat of featured">
+      <img [src]="feat.img" />
+
+      <div class="info">
+        <ion-text color="dark"><b>{{feat.name}}</b></ion-text>
+        <span>
+          <ion-icon name="star" color="secondary"></ion-icon>
+          <ion-text color="secondary"> {{feat.rating}}</ion-text
+          >{{feat.ratings}}
+        </span>
+        <span>
+          <ion-icon name="location-outline"></ion-icon> {{feat.distance}}
+        </span>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

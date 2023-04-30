@@ -13,6 +13,8 @@ export class HomePage implements OnInit {
   public featured: any = [];
   public swiperModules = [IonicSlides];
 
+  public showLocationDetail = false;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -23,5 +25,20 @@ export class HomePage implements OnInit {
         this.highlights = result.highlights;
         this.featured = result.featured;
       });
+  }
+
+  public doRefresh(content: any): void {
+    setTimeout(() => {
+      content.target.complete();
+    }, 2000);
+  }
+
+  public onScroll(event: any) {
+    const offset = event.detail.scrollTop;
+    this.showLocationDetail = offset > 50;
+  }
+
+  public openDetail(): void {
+    window.location.href = '/details';
   }
 }

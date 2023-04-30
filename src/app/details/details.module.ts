@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { DetailsPageRoutingModule } from './details-routing.module';
 import { DetailsPage } from './details.page';
-import { SharedDirectivesModule } from '../directives/shared-directives.module';
 
 @NgModule({
   imports: [
@@ -15,5 +15,6 @@ import { SharedDirectivesModule } from '../directives/shared-directives.module';
     SharedDirectivesModule,
   ],
   declarations: [DetailsPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DetailsPageModule {}

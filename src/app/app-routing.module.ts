@@ -13,6 +13,11 @@ const routes: Routes = [
       import('./details/details.module').then((m) => m.DetailsPageModule),
   },
   {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

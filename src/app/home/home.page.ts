@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { IonicSlides } from '@ionic/angular';
 
 @Component({
@@ -15,7 +16,7 @@ export class HomePage implements OnInit {
 
   public showLocationDetail = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.http
@@ -39,6 +40,6 @@ export class HomePage implements OnInit {
   }
 
   public openDetail(): void {
-    window.location.href = '/details';
+    this.router.navigate(['/details']);
   }
 }

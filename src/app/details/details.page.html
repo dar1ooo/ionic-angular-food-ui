@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-button fill="solid" shape="round" color="light" routerLink="/home">
+      <ion-button fill="solid" shape="round" color="light" (click)="navigateBack()">
         <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -30,15 +30,11 @@
   scrollEvents="true"
   (ionScroll)="onScroll($event)"
 >
-  <div
-    #img
-    class="header-image"
-    [style.background-image]="'url(' + data?.img + ')'"
-  ></div>
+  <img [src]="data?.img" />
 
   <ion-header collapse="condense" class="ion-no-border">
-    <ion-toolbar color="light">
-      <ion-title size="large">{{ data?.name }}</ion-title>
+    <ion-toolbar color="primary-contrast">
+      <ion-title size="large" color="primary">{{ data?.name }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -73,7 +69,7 @@
           <ion-col size="1">
             <ion-icon color="medium" name="location-outline"></ion-icon>
           </ion-col>
-          <ion-col size="10">
+          <ion-col size="10" (click)="openLocation()">
             <ion-label
               >Restaurant info
               <p>Map, allergene ad hygiene rating</p>

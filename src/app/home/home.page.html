@@ -24,54 +24,25 @@
       </ion-text>
     </ion-col>
     <ion-col size="2">
-      <ion-button fill="clear">
+      <ion-button fill="clear" routerLink="/profile">
         <ion-icon name="person-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-col>
-  </ion-row>
-
-  <ion-row class="sticky-row">
-    <ion-col size="10">
-      <ion-text
-        class="ion-padding-start"
-        color="medium"
-        [ngClass]="showLocationDetail ?'location-visible' : 'location-hidden'"
-      >
-        London
-      </ion-text>
+    <ion-col size="12">
       <ion-searchbar
         placeholder="Dishes, restaurants or cuisines"
       ></ion-searchbar>
-    </ion-col>
-    <ion-col size="2">
-      <ion-button fill="clear">
-        <ion-icon name="options-outline" slot="icon-only"></ion-icon>
-      </ion-button>
     </ion-col>
   </ion-row>
 
   <swiper-container
     [modules]="swiperModules"
     [freeMode]="true"
-    [slidesPerView]="3.5"
-    [slidesOffsetBefore]="11"
-    [spaceBetween]=" 10"
+    [slidesPerView]="3.8"
+    [spaceBetween]="-20"
   >
     <swiper-slide class="category-slide" *ngFor="let cat of categories">
       <img [src]="cat.img" />
-    </swiper-slide>
-  </swiper-container>
-
-  <swiper-container
-    [modules]="swiperModules"
-    [freeMode]="false"
-    [slidesPerView]="1.05"
-    [centeredSlides]="true"
-    [spaceBetween]="10"
-    [loop]="true"
-  >
-    <swiper-slide class="highlight-slide" *ngFor="let high of highlights">
-      <img [src]="high.img" />
     </swiper-slide>
   </swiper-container>
 
@@ -101,6 +72,19 @@
           <ion-icon name="location-outline"></ion-icon> {{feat.distance}}
         </span>
       </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <swiper-container
+    [modules]="swiperModules"
+    [freeMode]="false"
+    [slidesPerView]="1.05"
+    [centeredSlides]="true"
+    [spaceBetween]="10"
+    [loop]="true"
+  >
+    <swiper-slide class="highlight-slide" *ngFor="let high of highlights">
+      <img [src]="high.img" />
     </swiper-slide>
   </swiper-container>
 </ion-content>

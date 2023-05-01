@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonContent, IonList, IonicSlides, isPlatform } from '@ionic/angular';
 
 @Component({
@@ -33,7 +34,8 @@ export class DetailsPage implements OnInit, AfterViewInit {
 
   constructor(
     private http: HttpClient,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -91,5 +93,17 @@ export class DetailsPage implements OnInit, AfterViewInit {
       rect.bottom <=
         (window.innerHeight || document.documentElement.clientHeight)
     );
+  }
+
+  public openLocation(): void {
+    window.open(
+      'https://goo.gl/maps/xqSXu3jSzx7e9ZR47',
+      '_system',
+      'location=yes'
+    );
+  }
+
+  public navigateBack(): void {
+    this.router.navigate(['..']);
   }
 }
